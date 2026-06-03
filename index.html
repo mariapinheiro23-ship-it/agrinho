@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte e Sustentável</title>
+    <style>
+        /* Reset e Configurações Básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cores Temáticas */
+        :root {
+            --verde-escuro: #1b4332;
+            --verde-principal: #2d6a4f;
+            --verde-claro: #52b788;
+            --marrom-terra: #7f5539;
+            --bege-suave: #ede0d4;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background-color: var(--verde-escuro);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        header .logo span {
+            color: var(--verde-claro);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--verde-claro);
+        }
+
+        /* Seção Hero (Banner Principal) */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .btn-cta {
+            background-color: var(--verde-claro);
+            color: var(--verde-escuro);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-cta:hover {
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Seções de Conteúdo */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--verde-escuro);
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .titulo-secao::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--marrom-terra);
+            margin: 10px auto 0;
+        }
+
+        /* Grid de Pilares */
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--verde-principal);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 15px;
+        }
+
+        /* Seção Sobre/Destaque */
+        .sobre {
+            background-color: var(--bege-suave);
+            padding: 60px 20px;
+        }
+
+        .sobre-conteudo {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .sobre-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .sobre-texto p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .sobre-imagem {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .sobre-imagem img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--verde-escuro);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="inicio">
+        <div class="logo">
+            <h1>Agro<span>Forte</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#pilares">Nossos Pilares</a></li>
+                <li><a href="#sobre">Sustentabilidade</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>O Futuro Alimentado pela Consciência</h2>
+        <p>Agro Forte: Onde a alta produtividade caminha lado a lado com a consciência ambiental.".</p>
+        <a href="#pilares" class="btn-cta">Conheça Nossas Práticas</a>
+    </section>
+
+    <section id="pilares" class="container">
+        <h2 class="titulo-secao">Inovação e Força no Campo</h2>
+        <div class="pilares-grid">
+            <div class="card">
+                <h3>Tecnologia de Precisão</h3>
+                <p>Utilização de drones, sensores e inteligência de dados para otimizar o uso de recursos, reduzir desperdícios e aumentar a produtividade por hectare.</p>
+            </div>
+            <div class="card">
+                <h3>Manejo Regenerativo</h3>
+                <p>Práticas que enriquecem o solo, como a rotação de culturas e a integração lavoura-pecuária-floresta (ILPF), garantindo a saúde da terra a longo prazo.</p>
+            </div>
+            <div class="card">
+                <h3>Preservação Hídrica</h3>
+                <p>Sistemas inteligentes de irrigação que economizam água e monitoramento constante de nascentes e cursos d'água nas propriedades.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="sobre-conteudo">
+            <div class="sobre-texto">
+                <h2 style="color: var(--verde-escuro); margin-bottom: 20px; font-size: 2rem;">Por que o Agro precisa ser Sustentável?</h2>
+                <p>O O Futuro da Terra e da Mesa: Por que o Agro Precisa Ser Sustentável
+O agronegócio é, sem dúvidas, o motor que movimenta a economia e garante a segurança alimentar global. No entanto, diante das mudanças climáticas, do crescimento populacional e da escassez de recursos naturais, surgiu uma certeza inquestionável: a força do campo já não se mede apenas pela quantidade da colheita, mas pela longevidade da terra. O agro precisa ser sustentável porque essa é a única garantia de que continuaremos produzindo amanhã.</p>
+                <p>O <strong>Agro Forte</strong> protege as florestas, valoriza o trabalhador do campo e alimenta o mundo com a certeza de que a terra continuará fértil amanhã.</p>
+            </div>
+            <div class="sobre-imagem">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=600&q=80" alt="Plantação verde com tecnologia de irrigação moderna">
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div style="margin-bottom: 15px;">
+            <h3 style="margin-bottom: 10px;">Agro Forte e Sustentável</h3>
+            <p>Semeando tecnologia, colhendo o futuro.</p>
+        </div>
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+        <p>&copy; 2026 AgroForte. Todos os direitos reservados. Orgulhosamente sustentável.</p>
+    </footer>
+
+</body>
+</html>
